@@ -412,7 +412,9 @@ CREATE TABLE `warehouse`  (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `uni_warehouse_name`(`name` ASC) USING BTREE
+  UNIQUE INDEX `uni_warehouse_name`(`name` ASC) USING BTREE,
+  INDEX `idx_warehouse_active`(`active` ASC) USING BTREE,
+  INDEX `idx_warehouse_status`(`status` ASC) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '仓库表' ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
